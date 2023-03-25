@@ -1,0 +1,30 @@
+<h1>Register here</h1>
+
+<div class="row g-3">
+    <div class="col-auto">
+        <label for="staticEmail2" class="visually-hidden">Username</label>
+        <input type="text" class="form-control" placeholder="Enter username" id="staticEmail2" required
+            [(ngModel)]="userData.username">
+    </div>
+    <div class="col-auto">
+        <label for="staticEmail2" class="visually-hidden">Email</label>
+        <input type="email" class="form-control" placeholder="Enter email" id="staticEmail2" required
+            [(ngModel)]="userData.email">
+    </div>
+    <div class="col-auto">
+        <label for="inputPassword2" class="visually-hidden">Password</label>
+        <input type="password" class="form-control" id="inputPassword2" placeholder="Password" required
+            [(ngModel)]="userData.password">
+    </div>
+    <div class="col-auto">
+        <label for="inputPassword2" class="visually-hidden">Confirm Password</label>
+        <input type="password" class="form-control" id="inputPassword2" placeholder="Confirm Password" required
+            [(ngModel)]="userData.confirmPassword">
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3" (click)="registerUser()">Register</button>
+    </div>
+    <div class="col-auto">
+        <a href="">Login here.</a>
+    </div>
+</div>

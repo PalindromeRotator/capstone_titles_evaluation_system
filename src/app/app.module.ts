@@ -15,10 +15,25 @@ import { PanelsComponent } from './panels/panels.component';
 import { ReportsComponent } from './reports/reports.component';
 import { ContentsComponent } from './contents/contents.component';
 
+//backend related modules
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RegisterFacultyComponent } from './register/register-faculty/register-faculty.component';
+import { RegisterGroupComponent } from './register/register-group/register-group.component';
+import { RegisterService } from 'src/app/services/tutorial.service';
+
 const routes: Routes = [
+
+  /* Non-Auth Pages */
   { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
+
+  //register pages
+  { path: 'register/faculty', component: RegisterFacultyComponent },
+  /* Non-Auth Pages */
+
+  /* Auth Pages */
   { path: 'profile', component: ProfileComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'accounts', component: AccountsComponent },
@@ -26,6 +41,8 @@ const routes: Routes = [
   { path: 'panels', component: PanelsComponent },
   { path: 'reports', component: ReportsComponent },
   { path: 'contents', component: ContentsComponent },
+  /* Auth Pages */
+
 ];
 
 @NgModule({
@@ -40,12 +57,16 @@ const routes: Routes = [
     PanelsComponent,
     ReportsComponent,
     ContentsComponent,
+    RegisterFacultyComponent,
+    RegisterGroupComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule,
+    HttpClientModule
   ],
   exports: [RouterModule],
   providers: [],

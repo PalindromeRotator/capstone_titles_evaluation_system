@@ -22,7 +22,8 @@ export class AppComponent implements OnInit {
 
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        if (event.url !== '/' && event.url !== 'register' && event.url !== 'forgot-password') {
+        console.log(event.url)
+        if (event.url !== '/' && event.url !== '/register' && event.url !== '/forgot-password' && event.url !== '/register/faculty') {
           this.showNavFlag = true;
           this.dashboardActive = event.url == '/dashboard' ? 'active' : '';
           this.profileActive = event.url == '/profile' ? 'active' : '';
