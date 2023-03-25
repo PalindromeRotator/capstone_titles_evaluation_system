@@ -53,15 +53,20 @@ exports.findAllPublished = (req, res) => {
 
 // Find a single User with a id
 exports.findOne = (req, res) => {
-    User.findById(req.params.id, (err, data) => {
+
+    const user = new User({
+        username: req.body.username,
+        password: req.body.password,
+    });
+    User.findById(user, (err, data) => {
         if (err) {
             if (err.kind === "not_found") {
                 res.status(404).send({
-                    message: `Not found User with id ${req.params.id}.`
+                    message: `Not found User with id ${req.body.username}.`
                 });
             } else {
                 res.status(500).send({
-                    message: "Error retrieving User with id " + req.params.id
+                    message: "Error retrieving User with id " + req.body.username
                 });
             }
         } else res.send(data);
@@ -80,7 +85,7 @@ exports.update = (req, res) => {
 
     console.log(req.body);
 
-    User.updateById(
+    User.update(
         req.params.id,
         new User(req.body),
         (err, data) => {
@@ -129,25 +134,18 @@ exports.deleteAll = (req, res) => {
 };
 
 exports.loginUser = (req, res) => {
-    if (!req.body) {
-        res.status(400).send({
-            message: "Content can not be empty!"
-        });
-    }
     // Create a User
-    const user = new User({
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.password,
-    });
-
-    // Save User in the database
-    User.loginUser(user, (err, data) => {
-        if (err)
-            res.status(500).send({
-                message:
-                    err.message || "Some error occurred while creating the User."
-            });
-        else res.send(data);
+    User.loginUser(req, (err, data) => {
+        if (err) {
+            if (err.kind === "not_found") {
+                res.status(404).send({
+                    message: `Not found User with id ${req.params.id}.`
+                });
+            } else {
+                res.status(500).send({
+                    message: "Error retrieving User with id " + req.params.id
+                });
+            }
+        } else res.send(data);
     });
 }

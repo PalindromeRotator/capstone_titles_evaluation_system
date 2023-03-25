@@ -1,0 +1,39 @@
+.card-container {
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-container {
+    width: 80%;
+    /* adjust to your needs */
+    margin: 0 auto;
+}
+
+.card-container {
+    position: relative;
+    width: 600px;
+    /* fixed width */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+.card {
+    width: 45%;
+    /* adjust to your needs */
+    /* Your card styles here */
+}
+
+@media screen and (max-width: 600px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}

@@ -14,8 +14,8 @@ export class RegisterService {
     return this.http.get(baseUrl);
   }
 
-  get(id: any): Observable<any> {
-    return this.http.get(`${baseUrl}/${id}`);
+  get(data: any): Observable<any> {
+    return this.http.get(baseUrl, data);
   }
 
   create(data: any): Observable<any> {
@@ -36,9 +36,5 @@ export class RegisterService {
 
   findByTitle(title: any): Observable<any> {
     return this.http.get(`${baseUrl}?title=${title}`);
-  }
-
-  loginUser(data: any): Observable<any> {
-    return this.http.post(baseUrl, data)
   }
 }

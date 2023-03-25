@@ -24,6 +24,7 @@ export class RegisterFacultyComponent {
   }
 
   registerUser(): void {
+    console.log(this.userData)
     if (this.userData.username === '' || this.userData.email === '' || this.userData.password === '') {
       this.messageHelper = 'All fields are required.'
       this.errorHelper = true;

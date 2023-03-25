@@ -10,20 +10,19 @@ import { RegisterService } from 'src/app/services/tutorial.service';
 export class LoginComponent implements OnInit {
   userData = {
     username: '',
-    email: '',
+    // email: '',
     password: '',
   };
   constructor(private router: Router, private registerService: RegisterService) { }
   ngOnInit(): void {
   }
-
   loginUser(): void {
+    console.log(this.userData)
     const data = {
       username: this.userData.username,
-      email: this.userData.email,
       password: this.userData.password,
     };
-    this.registerService.loginUser(data)
+    this.registerService.get(data)
       .subscribe(
         response => {
           alert('Success')
@@ -34,5 +33,4 @@ export class LoginComponent implements OnInit {
           console.log(error)
         });
   }
-
 }

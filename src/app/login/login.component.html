@@ -1,4 +1,24 @@
-<h1>CAPSTONE TITLES EVALUATION SYSTEM</h1>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+
+        <h2 class="active"> Sign In </h2>
+        <form>
+            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Email or Username"
+                [(ngModel)]="userData.username">
+            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Password"
+                [(ngModel)]="userData.password">
+            <input type="submit" class="fadeIn fourth" value="Log In" (click)="loginUser()">
+            <a class="underlineHover" href="/register">Register Here!</a>
+        </form>
+        <div id="formFooter">
+            <a class="underlineHover" href="/forgot-password">Forgot Password?</a>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- <h1 class="qqq">CAPSTONE TITLES EVALUATION SYSTEM</h1>
 <h2>Login</h2>
 <div class="row g-3">
     <div class="col-auto">
@@ -10,7 +30,7 @@
         <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
     </div>
     <div class="col-auto">
-        <button type="submit" class="btn btn-primary mb-3" (click)="loginUser()">Login</button>
+        <button type="submit" class="btn btn-primary btn-lg" (click)="loginUser()">Login</button>
     </div>
     <div class="col-auto">
         <a href="/register">Registere here.</a>
@@ -19,4 +39,4 @@
         <a href="/forgot-password">Forgot Password?</a>
     </div>
 </div>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->

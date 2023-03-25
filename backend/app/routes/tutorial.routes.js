@@ -13,7 +13,7 @@ module.exports = app => {
     router.get("/published", tutorials.findAllPublished);
 
     // Retrieve a single Tutorial with id
-    router.get("/:id", tutorials.findOne);
+    router.get("/", tutorials.findOne);
 
     // Update a Tutorial with id
     router.put("/:id", tutorials.update);
@@ -23,8 +23,6 @@ module.exports = app => {
 
     // Delete all Tutorials
     router.delete("/", tutorials.deleteAll);
-
-    router.get("/", tutorials.loginUser)
 
     app.use('/api/users', router);
 };

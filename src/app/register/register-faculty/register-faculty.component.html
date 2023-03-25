@@ -1,4 +1,38 @@
-<h1>Register here</h1>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+
+        <h2 class="active"> Sign Up</h2>
+        <!-- <form> -->
+        <label for="staticEmail2" class="visually-hidden">Username</label>
+        <input type="text" id="staticEmail2" required [(ngModel)]="userData.username" class="fadeIn second"
+            placeholder="Enter Your Username">
+
+        <label for="staticEmail2" class="visually-hidden">Email</label>
+        <input type="text" id="staticEmail2" required [(ngModel)]="userData.email" class="fadeIn second"
+            placeholder="Enter Your Email">
+
+        <label for="staticEmail2" class="visually-hidden">Password</label>
+        <input type="text" id="staticEmail2" required [(ngModel)]="userData.password" class="fadeIn second"
+            placeholder="Enter Your Password">
+
+        <label for="staticEmail2" class="visually-hidden">Confirm Password</label>
+        <input type="text" id="staticEmail2" required [(ngModel)]="userData.confirmPassword" class="fadeIn second"
+            placeholder="Confirm Password">
+
+        <div class="Regandlink">
+            <input type="submit" class="fadeIn fourth" value="Register" (click)="registerUser()">
+            <a href="">Login here.</a>
+        </div>
+
+        <!-- </form> -->
+    </div>
+</div>
+
+
+
+
+
+<!-- <h1>Register here</h1>
 
 <div class="row g-3">
     <div class="col-auto">
@@ -27,4 +61,4 @@
     <div class="col-auto">
         <a href="">Login here.</a>
     </div>
-</div>
+</div> -->

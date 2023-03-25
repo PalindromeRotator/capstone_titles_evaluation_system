@@ -6,6 +6,7 @@ const User = function (user) {
     this.email = user.email;
     this.password = user.password;
     this.user = user.user;
+    this.fullname = user.fullname
 };
 User.create = (newUser, result) => {
     sql.query("INSERT INTO users SET ?", newUser, (err, res) => {
@@ -20,23 +21,25 @@ User.create = (newUser, result) => {
     });
 };
 
-User.findById = (id, result) => {
-    sql.query(`SELECT * FROM users WHERE id = ${id}`, (err, res) => {
-        if (err) {
-            console.log("error: ", err);
-            result(err, null);
-            return;
-        }
+User.findById = (data, result) => {
+    sql.query(`SELECT * FROM users WHERE username = 'admin' AND password = 'admin`,
+        [data.username, data.password],
+        (err, res) => {
+            if (err) {
+                console.log("error: ", err);
+                result(err, null);
+                return;
+            }
 
-        if (res.length) {
-            console.log("found User: ", res[0]);
-            result(null, res[0]);
-            return;
-        }
+            if (res.length) {
+                console.log("found User: ", res[0]);
+                result(null, res[0]);
+                return;
+            }
 
-        // not found User with the id
-        result({ kind: "not_found" }, null);
-    });
+            // not found User with the id
+            result({ kind: "not_found" }, null);
+        });
 };
 
 User.getAll = (title, result) => {
@@ -71,10 +74,10 @@ User.getAllPublished = result => {
     });
 };
 
-User.updateById = (id, User, result) => {
+User.update = (id, User, result) => {
     sql.query(
-        "UPDATE users SET title = ?, description = ?, published = ? WHERE id = ?",
-        [User.title, User.description, User.published, id],
+        "UPDATE users SET username = ?, email = ?, fullname = ? WHERE id = ?",
+        [User.username, User.email, User.fullname, id],
         (err, res) => {
             if (err) {
                 console.log("error: ", err);
@@ -125,24 +128,5 @@ User.removeAll = result => {
         result(null, res);
     });
 };
-
-User.loginUser = result => {
-    sql.query(`SELECT * FROM users WHERE username = ${result.username} OR email = ${result.email} AND password = ${result.password}`, (err, res) => {
-        if (err) {
-            console.log("error: ", err);
-            result(err, null);
-            return;
-        }
-
-        if (res.length) {
-            console.log("found User: ", res[0]);
-            result(null, res[0]);
-            return;
-        }
-
-        // not found User with the id
-        result({ kind: "not_found" }, null);
-    });
-}
 
 module.exports = User;
