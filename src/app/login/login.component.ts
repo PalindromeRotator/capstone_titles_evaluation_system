@@ -19,11 +19,11 @@ export class LoginComponent implements OnInit {
   loginUser(): void {
     console.log(this.userData.username)
     // console.log(this.userData)
-    // const data = {
-    //   username: this.userData.username,
-    //   password: this.userData.password,
-    // };
-    this.registerService.get(this.userData.username)
+    const data = {
+      username: this.userData.username,
+      password: this.userData.password,
+    };
+    this.registerService.get(data)
       .subscribe(
         response => {
           alert('Success')

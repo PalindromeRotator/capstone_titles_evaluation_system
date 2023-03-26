@@ -53,11 +53,12 @@ exports.findAllPublished = (req, res) => {
 
 // Find a single User with a id
 exports.findOne = (req, res) => {
-    User.findById(req.params.username, (err, data) => {
+    User.findById(new User(req.body), (err, data) => {
         if (err) {
             if (err.kind === "not_found") {
+                console.log(req)
                 res.status(404).send({
-                    message: `Not found User with username ${req.params.username}.`
+                    message: `Not found User with username ${data}.`
                 });
             } else {
                 res.status(500).send({
