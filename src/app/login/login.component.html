@@ -5,15 +5,16 @@
         <form>
             <input type="text" id="login" class="fadeIn second" name="login" placeholder="Email or Username"
                 [(ngModel)]="userData.username">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Password"
+            <input type="text" id="password" class="fadeIn third" name="passwoprd" placeholder="Password"
                 [(ngModel)]="userData.password">
             <input type="submit" class="fadeIn fourth" value="Log In" (click)="loginUser()">
             <a class="underlineHover" href="/register">Register Here!</a>
+            
+            
         </form>
         <div id="formFooter">
             <a class="underlineHover" href="/forgot-password">Forgot Password?</a>
         </div>
-
     </div>
 </div>
 

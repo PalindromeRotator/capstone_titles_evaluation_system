@@ -1,17 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
-
 body {
+    background-color: #92badd;
     font-family: "Poppins", sans-serif;
     height: 100vh;
 }
-
 a {
     color: #92badd;
     text-decoration: none;
     font-weight: 400;
 }
-
 h2 {
     text-align: center;
     font-size: 24px;
@@ -21,7 +19,6 @@ h2 {
     margin: 40px 8px 10px 8px;
     color: #cccccc;
 }
-
 .wrapper {
     display: flex;
     align-items: center;
@@ -31,21 +28,18 @@ h2 {
     min-height: 100%;
     padding: 20px;
 }
-
 #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
-
     padding: 30px;
     width: 90%;
-    max-width: 600px;
+    max-width: 700px;
     position: relative;
-    padding: 0px;
+    padding: 15px;
     -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
     box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
     text-align: center;
 }
-
 #formFooter {
     background-color: #f6f6f6;
     border-top: 1px solid #dce8f1;
@@ -54,24 +48,24 @@ h2 {
     -webkit-border-radius: 0 0 10px 10px;
     border-radius: 0 0 10px 10px;
 }
-
 /* TABS */
 h2.inactive {
     color: #cccccc;
 }
-
 h2.active {
     color: #0d0d0d;
-    border-bottom: 2px solid #03b803;
+    border-bottom: 2px solid #f97825;
 }
-
 input[type=button],
 input[type=submit],
 input[type=reset] {
-    background-color: #03b803;
+
+    width: 60%;
+    padding: 15px 32px;
+    
+    background-color: #f97825;
     border: none;
     color: white;
-    padding: 15px 180px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -88,13 +82,11 @@ input[type=reset] {
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
-
 input[type=button]:hover,
 input[type=submit]:hover,
 input[type=reset]:hover {
-    background-color: #83fa8d;
+    background-color: #be4900;
 }
-
 input[type=button]:active,
 input[type=submit]:active,
 input[type=reset]:active {
@@ -104,7 +96,6 @@ input[type=reset]:active {
     -ms-transform: scale(0.95);
     transform: scale(0.95);
 }
-
 input[type=text] {
     background-color: #f6f6f6;
     border: none;
@@ -128,7 +119,7 @@ input[type=text] {
 
 input[type=text]:focus {
     background-color: #fff;
-    border-bottom: 2px solid #03b803;
+    border-bottom: 2px solid #f97825;
 }
 
 input[type=text]:placeholder {
@@ -254,7 +245,7 @@ input[type=text]:placeholder {
     bottom: -10px;
     width: 0;
     height: 2px;
-    background-color: #03b803;
+    background-color: #f97825;
     content: "";
     transition: width 0.2s;
 }
