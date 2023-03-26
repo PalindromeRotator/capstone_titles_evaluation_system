@@ -21,9 +21,8 @@ User.create = (newUser, result) => {
     });
 };
 
-User.findById = (data, result) => {
-    sql.query(`SELECT * FROM users WHERE username = 'admin' AND password = 'admin`,
-        [data.username, data.password],
+User.findById = (username, result) => {
+    sql.query(`SELECT * FROM users WHERE username = ${username}`,
         (err, res) => {
             if (err) {
                 console.log("error: ", err);

@@ -53,20 +53,15 @@ exports.findAllPublished = (req, res) => {
 
 // Find a single User with a id
 exports.findOne = (req, res) => {
-
-    const user = new User({
-        username: req.body.username,
-        password: req.body.password,
-    });
-    User.findById(user, (err, data) => {
+    User.findById(req.params.username, (err, data) => {
         if (err) {
             if (err.kind === "not_found") {
                 res.status(404).send({
-                    message: `Not found User with id ${req.body.username}.`
+                    message: `Not found User with username ${req.params.username}.`
                 });
             } else {
                 res.status(500).send({
-                    message: "Error retrieving User with id " + req.body.username
+                    message: err
                 });
             }
         } else res.send(data);

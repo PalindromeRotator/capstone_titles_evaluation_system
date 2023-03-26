@@ -14,8 +14,8 @@ export class RegisterService {
     return this.http.get(baseUrl);
   }
 
-  get(data: any): Observable<any> {
-    return this.http.get(baseUrl, data);
+  get(username: any): Observable<any> {
+    return this.http.get(baseUrl, username);
   }
 
   create(data: any): Observable<any> {
